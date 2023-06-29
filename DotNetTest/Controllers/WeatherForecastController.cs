@@ -1,4 +1,6 @@
+using DotNetTest.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace DotNetTest.Controllers
 {
@@ -30,17 +32,7 @@ namespace DotNetTest.Controllers
             .ToArray();
         }
 
-        [HttpDelete("GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get1()
-        {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
-        }
+        
 
     }
 }
